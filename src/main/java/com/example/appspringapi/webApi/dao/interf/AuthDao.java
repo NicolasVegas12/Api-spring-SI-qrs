@@ -1,9 +1,7 @@
 package com.example.appspringapi.webApi.dao.interf;
 
-import com.example.appspringapi.mobileApi.models.App_AuthResponse;
-import com.example.appspringapi.webApi.models.AuthRequest;
-import com.example.appspringapi.webApi.models.AuthResponse;
+import com.example.appspringapi.webApi.models.dto.WP_AuthRequest;
 
 public interface AuthDao {
-    AuthResponse login(AuthRequest request);
+    String login(WP_AuthRequest request);
 }

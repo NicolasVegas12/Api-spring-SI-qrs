@@ -1,9 +1,9 @@
-package com.example.appspringapi.mobileApi.models;
+package com.example.appspringapi.webApi.models.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 
-public class App_AuthRequest {
+public class WP_AuthRequest {
     @Getter
     @Setter
     private String user;
@@ -12,18 +12,17 @@ public class App_AuthRequest {
     private String password;
 
     @Getter@Setter
-    private String token;
-
+    private String tokenAccess;
     @Getter@Setter
-    private String idDisp;
+    private String dispositivoAccess;
 
     @Override
     public String toString() {
-        return "App_AuthRequest{" +
+        return "WP_AuthRequest{" +
                 "user='" + user + '\'' +
                 ", password='" + password + '\'' +
-                ", token='" + token + '\'' +
-                ", idDisp='" + idDisp + '\'' +
+                ", tokenAccess='" + tokenAccess + '\'' +
+                ", dispositivoAccess='" + dispositivoAccess + '\'' +
                 '}';
     }
 }
