@@ -73,12 +73,14 @@ public class App_AuthDaoImpl implements App_AuthDao {
 
 
         WP_AuthResponse respuesta = gson.fromJson(encriptacionService.Desencriptar(request.getCode()), WP_AuthResponse.class);
+
         Acceso acces = accesoRepository.getAccesoByIdAccesoAndCodigo(respuesta.getId(),respuesta.getCode());
 
         Map<String,String> data = new HashMap<>();
         data.put("ACCEPTATION",request.getValidation().toString());
         data.put("NOTIFICATION_CODE","121");
         try {
+            System.out.println(acces.getTokenAccess());
             firebaseService.sendNotification(
                     new Message("Respuesta de Aceso","body",data),acces.getTokenAccess()
             );

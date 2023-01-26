@@ -25,7 +25,6 @@ public class EncriptacionServiceImpl implements IEncriptacionService {
         } catch (Exception e) {
             return null;
         }
-
     }
 
     @Override
@@ -52,7 +51,6 @@ public class EncriptacionServiceImpl implements IEncriptacionService {
             SecretKeySpec secretKeySpec = CrearClave(LLAVE);
             Cipher cipher = Cipher.getInstance("AES");
             cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
-
             byte [] cadena = Base64.decodeBase64(desencriptar);
             byte [] desencriptacioon = cipher.doFinal(cadena);
             String cadena_desencriptada = new String(desencriptacioon);

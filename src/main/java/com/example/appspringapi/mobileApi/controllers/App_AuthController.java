@@ -15,8 +15,6 @@ public class App_AuthController {
     @Autowired
     App_AuthDao authDao;
 
-
-
     @RequestMapping(value = "MobileApi/api/sp_login_app", method = RequestMethod.POST)
     public String loginUser(@RequestBody App_AuthRequest request){
 
@@ -27,11 +25,6 @@ public class App_AuthController {
     @RequestMapping(value = "MobileApi/api/sp_auth_app", method = RequestMethod.POST)
     public Boolean loginUser(@RequestBody App_ValidationRequest request){
         Boolean response = authDao.validate(request);
-        if(response){
-
-        }else{
-
-        }
 
         return response;
     }

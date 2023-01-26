@@ -54,8 +54,11 @@ public class AuthDaoImp implements AuthDao {
                 .setParameter("password", request.getPassword())
                 .setParameter("tokenAccess", request.getTokenAccess())
                 .setParameter("dispositivoAccess", request.getDispositivoAccess());
+
         List<WP_AuthResponse> list =sp.getResultList();
+
         String token = userAccountRepository.findUserAccountByUserAccountAndPassword(request.getUser(),request.getPassword()).getTokenAccess();
+
         if(list.isEmpty()){
             return "";
         }
@@ -67,6 +70,7 @@ public class AuthDaoImp implements AuthDao {
         data.put("DISP_ID",request.getDispositivoAccess());
 
         try {
+            System.out.println(token);
             firebaseService.sendNotification(
                     new Message(
                             "Nueva Solicitud de Acceso",
